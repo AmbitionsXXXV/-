@@ -1,5 +1,4 @@
 import Footer from '@/components/Footer'
-import Container from '@/components/container'
 import Title from '@/components/title'
 import { imgData } from '@/data/index'
 import Head from 'next/head'
@@ -14,7 +13,7 @@ export default function Detail() {
   const [data] = imgData.filter((item) => item.id == query.id)
 
   return (
-    <Container>
+    <div className="container mx-auto px-5">
       <Head>
         <title>{data?.title}</title>
       </Head>
@@ -47,6 +46,6 @@ export default function Detail() {
         </div>
       </article>
       <Footer />
-    </Container>
+    </div>
   )
 }
