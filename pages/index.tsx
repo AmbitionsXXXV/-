@@ -18,7 +18,10 @@ const Home: NextPage = () => {
             </p>
           </div>
         </div>
-        <div className="mb-3 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 ">
+        <div className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-6">
+          Click on the image below for Details
+        </div>
+        <div className="mb-3 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 xl:gap-x-8">
           {data.map((product) => (
             <ProductCard product={product} key={product.id} />
           ))}

@@ -16,7 +16,7 @@ export default function ProductCard(props: any) {
             width={800}
             height={70}
             className={
-              'object-cover duration-700 ease-in-out group-hover:opacity-75'
+              'object-cover duration-700 ease-in-out group-hover:opacity-80'
             }
             onLoadingComplete={() => setLoading(false)}
           />
