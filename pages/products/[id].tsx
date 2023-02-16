@@ -6,11 +6,12 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
 import styles from './post-body.module.css'
+import ScrollTop from '@/components/ScrollTop'
 
 export default function Detail() {
   const router = useRouter()
   const { query } = router
-  const [data] = imgData.filter((item) => item.id == query.id)
+  const [data] = imgData.filter((item) => item.id === query.id)
 
   return (
     <div className="container mx-auto px-5">
@@ -19,10 +20,11 @@ export default function Detail() {
       </Head>
       <Title />
       <article>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight md:leading-none mb-12 text-center md:text-left">
+        <h1 className="mb-12 text-center text-4xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl">
           {data?.name}
         </h1>
-        <div className="mb-8 md:mb-16 sm:mx-0">
+        <ScrollTop />
+        <div className="mb-8 sm:mx-0 md:mb-16">
           <div className="sm:mx-0">
             <Image
               width={2000}
@@ -33,14 +35,14 @@ export default function Detail() {
             />
           </div>
         </div>
-        <div className="max-w-2xl mx-auto">
+        <div className="mx-auto max-w-4xl">
           <div className={styles.content}>
-            <h2>功能介绍</h2>
-            <p>用于为系统拥有者提供管理用户的权限，包括：</p>
+            <h1 className="text-4xl font-bold">页面功能简介：</h1>
+            <p>{data?.one}</p>
             <ul>
-              <li>增加管理员</li>
-              <li>修改管理员拥有的权限</li>
-              <li>控制某一管理员是否还存在</li>
+              {data?.two.map((item: string) => {
+                return <li key={item}>{item}</li>
+              })}
             </ul>
           </div>
         </div>
