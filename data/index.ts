@@ -1,21 +1,21 @@
 interface GroupItem {
-  image: {
-    link: string
-  }
+  link: string
 }
 interface DataItem {
-  imageGroups: GroupItem
+  imageGroups: GroupItem[]
   name: string
   shortDescription: string
   id: string
   title: string
   one: string
   two: string[]
+  three?: string
+  four?: string[]
 }
 
 export const imgData: DataItem[] = [
   {
-    imageGroups: { image: { link: '/login.png' } },
+    imageGroups: [{ link: '/login.png' }],
     name: '登陆注册页面',
     shortDescription: '功能：用户进入主页前的登陆注册',
     id: '1',
@@ -29,11 +29,11 @@ export const imgData: DataItem[] = [
     ]
   },
   {
-    imageGroups: { image: { link: '/addUser.png' } },
-    name: '用户管理页面',
-    shortDescription: '功能：负责操作管理用户',
+    imageGroups: [{ link: '/users.png' }, { link: '/addUser.png' }],
+    name: '用户列表管理页面',
+    shortDescription: '功能：展示所有用户及所拥有的权限',
     id: '2',
-    title: 'AddUserPage',
+    title: 'UsersPage',
     one: '查看用户列表，并对管理员以及超级管理员提供有修改用户权限的功能',
     two: [
       '在管理员列表里新增一位管理员',
@@ -41,42 +41,31 @@ export const imgData: DataItem[] = [
       '彻底删除某一管理员',
       '查找管理员账号',
       '查看管理员账号详细信息'
-    ]
+    ],
+    three: '通过填写对应字段对对应用户信息进行编辑操作，包括：',
+    four: ['对用户权限进行更改', '对用户具体信息进行修改', '是否启用该用户']
   },
   {
-    imageGroups: { image: { link: '/itemBank.png' } },
+    imageGroups: [{ link: '/itemBank.png' }],
     name: '题库管理页面',
     shortDescription: '功能：负责操作管理题库',
     id: '3',
     title: 'ItemBankPage',
     one: '为管理员对题库操作提供场景，包括从题库中添加、修改、删除以及按照条件筛选题目',
-    two: ['题库筛查']
+    two: [
+      '题库筛查(如根据考试主题、题目类型等)',
+      '对题库题目进行新增',
+      '删除指定题目',
+      '查看题目具体内容,并可对题目题干、答案、选项等重新编辑'
+    ]
   },
   {
-    imageGroups: { image: { link: '/addPaper.png' } },
+    imageGroups: [{ link: '/paperList.png' }, { link: '/addPaper.png' }],
     name: '考试试卷管理页面',
     shortDescription: '功能：操作管理试卷页面',
-    id: '4',
-    title: 'AddPaperPage',
-    one: '查看用户列表，并对管理员以及超级管理员提供有修改用户权限的功能',
-    two: []
-  },
-  {
-    imageGroups: { image: { link: '/paperList.png' } },
-    name: '试卷题目页面',
-    shortDescription: '功能：列表形式展示所有试卷',
     id: '5',
-    title: 'PaperListPage',
-    one: '查看用户列表，并对管理员以及超级管理员提供有修改用户权限的功能',
-    two: []
-  },
-  {
-    imageGroups: { image: { link: '/users.png' } },
-    name: '用户列表页面',
-    shortDescription: '功能：展示所有用户及所拥有的权限',
-    id: '6',
-    title: 'UsersPage',
-    one: '查看用户列表，并对管理员以及超级管理员提供有修改用户权限的功能',
-    two: []
+    title: 'AddPaperPage',
+    one: '对具体试卷进行具体操作',
+    two: ['选择想要的试卷加入考试']
   }
 ]
